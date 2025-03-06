@@ -59,8 +59,8 @@
                     @if (passwordControl?.hasError('required')) {
                     <li>password is required</li>
                     }
-                    @if (passwordControl?.hasError('minlength')) {
-                    <li>Min length is 8 characters</li>
+                    @if (passwordControl?.hasError('pattern')) {
+                    <li>password is invalid</li>
                     }
                 </ul>
             </div>
