@@ -11,7 +11,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { loaderInterceptor } from './core/interceptors/loader.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes,withHashLocation()), provideClientHydration(withEventReplay()),
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch(),withInterceptors([headersInterceptor,errorsInterceptor,loaderInterceptor])),provideAnimations(), provideToastr(),
     importProvidersFrom(
       NgxSpinnerModule
