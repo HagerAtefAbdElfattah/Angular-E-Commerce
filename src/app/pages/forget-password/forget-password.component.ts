@@ -26,7 +26,7 @@ export class ForgetPasswordComponent {
   
   newPasswordForm:FormGroup = new FormGroup({
     email:new FormControl(null,[Validators.required,Validators.email]),
-    newPassword: new FormControl(null,[Validators.required,Validators.minLength(8)])
+    newPassword: new FormControl(null,[Validators.required,Validators.pattern(/^[A-Za-z][A-Za-z0-9]{5,8}$/)])
   })
 
   forgetPassword(){
