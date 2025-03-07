@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../environments/environment';
+import { Wishlist } from '../interfaces/wishlist';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ import { environment } from '../environments/environment';
 export class WishlistService {
 
   baseUrl = environment.baseUrl
+
+  // allWishlist: BehaviorSubject<Wishlist>= new BehaviorSubject<Wishlist>({});
 
   constructor(private http:HttpClient) { }
 

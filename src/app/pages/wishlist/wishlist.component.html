@@ -1,5 +1,4 @@
-
-<section class="container my-10 p-10">
+<!-- <section class="container my-10 p-10">
     <section class="products my-5">
         <div class="page-title">
             <h2 class="text-green-500 text-center mb-5 font-bold text-4xl uppercase">products</h2>
@@ -30,4 +29,39 @@
             }
         </div>
     </section>
+</section> -->
+<section class="p-5 m-10 rounded-md bg-gray-300">
+    <h2 class="text-2xl mb-4 capitalize font-bold">your Wish list :</h2>
+    <div>
+        <!-- <p class="mb-4 text-lg font-medium capitalize">total cart price :
+            <span class="text-green-600 ">{{wishList}}</span>
+        </p> -->
+    </div>
+
+    @if (wishList.length !== 0) {
+    @for (product of wishList; track $index) {
+    <div class="product flex items-center p-4">
+        <div class="img-wrapper w-[15%] mx-4">
+            <img [src]="product.imageCover" alt="">
+        </div>
+        <div class="product-info w-[90%] flex justify-between items-center">
+            <div class="data">
+                <h3 class="text-xl mb-4 text-green-400">{{product.title}}</h3>
+                <p class="mb-4">price : <span class="text-green-600">{{product.price|currency:'EGP'}}</span></p>
+                <button (click)="removeFromWishlist(product._id)" class="text-red-500 hover:text-red-800"><i
+                        class="fa-solid fa-trash-can"></i> Remove</button>
+            </div>
+            <button (click)="addToCart(product.id)"
+                class="bg-green-500 rounded-md px-6 py-2 text-white block hover:bg-green-800 mt-3 disabled:bg-green-800 capitalize">add to cart</button>
+        </div>
+    </div>
+
+    @if (!$last) {
+    <div class="sep bg-gray-600 h-[1px]"></div>
+    }
+    }
+    }@else {
+    <p class="text-3xl text-center my-10 capitalize">your wish list is empty</p>
+    }
+
 </section>

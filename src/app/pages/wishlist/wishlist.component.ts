@@ -1,49 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { WishlistService } from '../../core/services/wishlist.service';
 import { Wishlist } from '../../core/interfaces/wishlist';
-import { Product } from '../../core/interfaces/Product';
-import { ProductsService } from '../../core/services/products.service';
-import { WishlistFilterPipe } from '../../shared/pipes/wishlist-filter.pipe';
-import { RouterLink } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
+import { CartService } from '../../core/services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-wishlist',
-  imports: [RouterLink, WishlistFilterPipe],
+  imports: [CurrencyPipe],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss'
 })
 export class WishlistComponent implements OnInit {
 
-  wishList: string[] = []
+  wishList: Wishlist[] = []
 
-  allProducts: Product[] = [];
-
-  constructor(private wishlistService: WishlistService, private productService: ProductsService) {}
+  constructor(private wishlistService: WishlistService, private cart: CartService, private taostr: ToastrService) {}
 
   ngOnInit() {
-    this.getAllProducts();
     this.getWishlist();
   }
-getAllProducts(){
-  this.productService.getProducts().subscribe({
-    next:(res)=>{
-      this.allProducts = res.data 
-      console.log(this.allProducts);
-    },error:(err)=>{
-      console.log(err);      
-    }
-  })
-  
-}
 
 getWishlist(){
   this.wishlistService.getWishlist().subscribe({
     next:(res)=>{
       this.wishList = res.data
-      console.log(res.data);
-      const jsonString = JSON.stringify(res);  // Convert API response to JSON string
-      const parsedWishlist = JSON.parse(jsonString); // Convert back to an object
-      this.wishList = parsedWishlist; // Store the modified data
+      console.log(res);
       
     },error:(err)=>{
       console.log(err);
@@ -54,12 +36,29 @@ getWishlist(){
     removeFromWishlist(id:string){
     this.wishlistService.removeFromWishlist(id).subscribe({
       next:(res)=>{
-        // console.log(res);
+        console.log(res);
+        this.getWishlist();
+        this.taostr.success(res.message, 'Success');
       },error:(err)=>{
         console.log(err);
+        this.taostr.error(err.error.message, 'Error');
       }
     })
   }
+
+addToCart(id:string){
+  this.cart.addToCart(id).subscribe({
+    next:(res)=>{
+      console.log(res.data);
+      
+      this.taostr.success(res.message, 'Success');
+    },error:(err)=>{
+      console.log(err);
+      this.taostr.error(err.error.message, 'Error');
+    }
+  })
+}
+
 }
 
 
