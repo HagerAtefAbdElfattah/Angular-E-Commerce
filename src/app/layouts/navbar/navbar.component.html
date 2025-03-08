@@ -4,9 +4,6 @@
             <img [src]="'/images/freshcart-logo.svg'" alt="">
         </a>
         <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            @if (isLogin) {
-                <a class="block px-4 py-2 text-gray-900 hover:bg-green-500 rounded-md" (click)="logout()">Signout</a>
-            }
             <button data-collapse-toggle="navbar-user" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-user" aria-expanded="false">
@@ -19,6 +16,7 @@
             </button>
 
         </div>
+        
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 flex-grow p-3"
             id="navbar-user">
             @if (isLogin==true) {
@@ -67,6 +65,11 @@
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900"><i class="fa fa-brands fa-tiktok"></i></a>
                 </li>
+                <li class="relative">
+                    <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'cart'"
+                        routerLinkActive="text-green-500" id="cart"><i class="fa-solid fa-cart-shopping fa-2x hover:text-green-800 "></i>
+                        <span class="bg-red-100 text-red-800 text-xs font-medium me-1 px-1.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300 absolute top-0 end-0">{{numberCounter()}}</span></a>
+                </li>
                 @if (isLogin == false) {
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'login'"
@@ -76,6 +79,9 @@
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'register'"
                         routerLinkActive="active bg-yellow-500">register</a>
                 </li>
+                }
+                @if (isLogin) {
+                    <a class="block px-4 py-2 text-gray-900 hover:bg-green-500 rounded-md" (click)="logout()">Signout</a>
                 }
             </ul>
         </div>

@@ -8,6 +8,7 @@ import { WishlistService } from '../../core/services/wishlist.service';
 import { Wishlist } from '../../core/interfaces/wishlist';
 import { CommonModule } from '@angular/common'; 
 
+
 @Component({
   selector: 'app-products',
   imports: [RouterLink, CommonModule],
@@ -16,15 +17,13 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductsComponent {
   productsList: Product[] = [];
-  wishList!:Wishlist;
-
-  isFavorite: boolean = false;
+  wishList:Wishlist[]=[]
 
   constructor(
     private ProductsService: ProductsService,
     private cart: CartService,
     private toastr: ToastrService,
-    private wishlist:WishlistService
+    private wishlistService:WishlistService
   ) {}
   ngOnInit(): void {
     this.getProducts();
@@ -44,26 +43,28 @@ export class ProductsComponent {
   addToCart(id: string) {
     this.cart.addToCart(id).subscribe({
       next: (res) => {
+        this.cart.counter.set(res.numOfCartItems);
+        this.wishlistService.productID.set(res.data._id);
         console.log(res);
-        this.toastr.success(res.message, 'Success');
+        this.toastr.success(res.message, 'Success')
       },
       error: (err) => {
         console.log(err);
-        this.toastr.error(err.error.message, 'Error');
+        this.toastr.error(err.error.message, 'Error')
       },
     });
   }
 
+
   addToWishlist(id:string){
-    this.wishlist.addToWishlist(id).subscribe({
+    this.wishlistService.addToWishlist(id).subscribe({
       next:(res)=>{
-        console.log(res);
-        this.wishList = res;
+        console.log(res.data);
+        this.wishlistService.allWishlist.next(res.data);
         this.toastr.success(`${res.message} <i class="fa-solid fa-heart"></i> `,
       'Success',{
         enableHtml: true
-      });
-      this.isFavorite = true;
+      });this.wishList = res.data
       },error:(err)=>{
         console.log(err);
       }
@@ -71,25 +72,29 @@ export class ProductsComponent {
   }
 
   removeFromWishlist(id:string){
-    this.wishlist.removeFromWishlist(id).subscribe({
+    this.wishlistService.removeFromWishlist(id).subscribe({
       next:(res)=>{
         console.log(res);
+        this.wishlistService.allWishlist.next(res.data);
         this.toastr.success(`${res.message} <i class="fa-solid fa-heart"></i> `,
       'Success',{
         enableHtml: true
-      });
-      this.wishList = res;
+      });this.wishList = res.data
       },error:(err)=>{
         console.log(err);
       }
     })
 }
 
+isFavorite(id: string): boolean {
+  return this.wishList.filter(product => product.id === id).length > 0;
+}
 toggleWishlist(id: string) {
-  if (this.wishList.data.includes(id)) {
+  if (this.isFavorite(id)) {
     this.removeFromWishlist(id);
   } else {
     this.addToWishlist(id);
   }
 }
+
 }

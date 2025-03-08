@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { effect, Injectable, signal, WritableSignal } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../environments/environment';
-import { Wishlist } from '../interfaces/wishlist';
+import { Wishlist } from './../interfaces/wishlist';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,14 @@ export class WishlistService {
 
   baseUrl = environment.baseUrl
 
-  // allWishlist: BehaviorSubject<Wishlist>= new BehaviorSubject<Wishlist>({});
+  allWishlist= new BehaviorSubject<Wishlist[]>([]);
+  productID:WritableSignal<{}>=signal('')
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    // effect(() => {
+    //   const x = localStorage.setItem('productID',JSON.stringify(this.productID()))
+    // })
+  }
 
   getWishlist():Observable<any>{
     return this.http.get(`${this.baseUrl}/api/v1/wishlist`);

@@ -101,6 +101,7 @@ export class HomeComponent implements OnInit {
   addToCart(id:string){
     this.CartService.addToCart(id).subscribe({
       next:(res)=>{
+        this.CartService.counter.set(res.numOfCartItems)
         console.log(res);
         this.toastr.success(`${res.message} <i class="fa-solid fa-cart-shopping"></i> `,
       'Success',{

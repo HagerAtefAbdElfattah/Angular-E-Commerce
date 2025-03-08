@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
         console.log(res);
         this.cartData = res.data
         this.cartId = res.data._id
+        this.cart.counter.set(res.numOfCartItems)
       },error:(err)=>{
         console.log(err);
       }
@@ -38,6 +39,7 @@ export class CartComponent implements OnInit {
       next:(res)=>{
         console.log(res);
         this.cartData = res.data
+        this.cart.counter.set(res.numOfCartItems)
       },error:(err)=>{
         console.log(err);
       }
@@ -49,6 +51,7 @@ export class CartComponent implements OnInit {
       next:(res)=>{
         console.log(res);
         this.cartData = res.data
+        this.cart.counter.set(res.numOfCartItems)
       },error:(err)=>{
         console.log(err);
       }
@@ -59,6 +62,7 @@ export class CartComponent implements OnInit {
     this.cart.clearCart().subscribe({
       next:(res)=>{
         console.log(res);
+        this.cart.counter.set(0)
         this.cartData = {} as Cart
       },error:(err)=>{
         console.log(err);

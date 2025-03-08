@@ -43,6 +43,7 @@ export class DetailsComponent implements OnInit {
   addToCart(id:string){
     this.cart.addToCart(id).subscribe({
       next:(res)=>{
+        this.cart.counter.set(res.numOfCartItems);
         console.log(res);
       },error:(err)=>{
         console.log(err);
