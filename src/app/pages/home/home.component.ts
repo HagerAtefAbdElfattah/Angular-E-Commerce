@@ -4,7 +4,7 @@ import { CategoriesService } from '../../core/services/categories.service';
 import { Product } from '../../core/interfaces/Product';
 import { Category } from '../../core/interfaces/Category';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, computed, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SearchPipe } from '../../shared/pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
@@ -27,6 +27,10 @@ export class HomeComponent implements OnInit {
   categoryList:Category[] = [];
   
   wishList:Wishlist ={} as Wishlist
+
+  wishListString: WritableSignal<string[]> = signal([]);;
+  
+    productID: string = '';
 
   searchTerm: string = '';
 
@@ -117,16 +121,20 @@ export class HomeComponent implements OnInit {
     this.toastr.success(msg);
   }
 
+  productInWishlist = computed(() => {
+    return (id: string) => this.wishListString().includes(id);
+  });
+
+
   addToWishlist(id:string){
     this.wishlist.addToWishlist(id).subscribe({
       next:(res)=>{
-        console.log(res);
-        this.wishList = res;
+        console.log(res.data);
+        this.wishListString.set(res.data);
         this.toastr.success(`${res.message} <i class="fa-solid fa-heart"></i> `,
       'Success',{
         enableHtml: true
       });
-      this.isFavorite = true;
       },error:(err)=>{
         console.log(err);
       }
@@ -137,16 +145,24 @@ export class HomeComponent implements OnInit {
     this.wishlist.removeFromWishlist(id).subscribe({
       next:(res)=>{
         console.log(res);
+        this.wishListString.set(res.data);
         this.toastr.success(`${res.message} <i class="fa-solid fa-heart"></i> `,
       'Success',{
         enableHtml: true
       });
-      this.wishList = res;
       },error:(err)=>{
         console.log(err);
       }
     })
   }
 
-
+  toggleFavorite(id: string) {
+    this.productID = id;
+    if ( this.productInWishlist()(id)) {
+      this.removeFromWishlist(id);
+    } else {
+      this.addToWishlist(id);
+    }
+    
+  }
 }

@@ -13,8 +13,6 @@ export class CartService {
 
   counter:WritableSignal<number>=signal(0)
 
- 
-
   constructor(private http:HttpClient) {}
 
   addToCart(id:string):Observable<any>{

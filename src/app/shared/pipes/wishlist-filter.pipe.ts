@@ -7,8 +7,8 @@ import { Product } from '../../core/interfaces/Product';
 export class WishlistFilterPipe implements PipeTransform {
 
   transform(products: Product[], wishlistIds: string[]): Product[] {
-    return products.slice()
-      
+    // return products.filter((product) => product.id.includes(wishlistIds))
+    return products
   }
 
 }

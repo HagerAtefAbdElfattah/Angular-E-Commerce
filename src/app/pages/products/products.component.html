@@ -4,7 +4,7 @@
             <h2 class="text-green-500 text-center mb-5 font-bold text-4xl uppercase">products</h2>
         </div>
         <div class=" gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            @for (product of productsList; track $index) {
+            @for (product of productsList(); track $index) {
             <div class="card w-fullbg-white rounded-lg hover:shadow-lg hover:shadow-green-500 ease-in-out duration-500">
                 <a [routerLink]="['/details',product.id]">
                     <div class="card-img">
@@ -24,8 +24,12 @@
                         </div>
                     </div>
                 </a>
-                <button class="ms-auto block" (click)="addToWishlist(product.id)">
-                    <i class="fa fa-heart text-4xl"></i>
+                <button class="ms-auto block" (click)="toggleFavorite(product.id)">
+                        @if (productInWishlist()(product.id)) {
+                            <i class="fa-solid fa-heart text-red-500"></i>
+                        }@else {
+                            <i class="fa-solid fa-heart text-yellow-500"></i>
+                        }
                 </button>
                 <button (click)="addToCart(product._id)"
                     class="up-button bg-green-600 text-b w-[90%] block mx-auto py-4 rounded-md mb-4 text-white">add to

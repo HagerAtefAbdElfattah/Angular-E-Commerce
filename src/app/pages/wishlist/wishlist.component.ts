@@ -50,7 +50,7 @@ addToCart(id:string){
   this.cart.addToCart(id).subscribe({
     next:(res)=>{
       console.log(res.data);
-      
+      this.cart.counter.set(res.numOfCartItems);
       this.taostr.success(res.message, 'Success');
     },error:(err)=>{
       console.log(err);
