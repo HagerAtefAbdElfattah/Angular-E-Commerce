@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import {  Injectable, signal, WritableSignal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
+import { Wishlist } from '../interfaces/wishlist';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ import { environment } from '../environments/environment';
 export class WishlistService {
 
   baseUrl = environment.baseUrl
+
+  wishList:WritableSignal<string[]> = signal([])
 
   constructor(private http:HttpClient) {}
 

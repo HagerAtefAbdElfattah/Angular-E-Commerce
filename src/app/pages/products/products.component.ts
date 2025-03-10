@@ -41,6 +41,10 @@ export class ProductsComponent implements OnInit {
     this.ProductsService.getProducts().subscribe({
       next: (res) => {
         this.productsList.set(res.data);
+        for (let i = 0; i < res.data.length; i++) {
+          this.productInWishlist()(res.data[i]._id);
+          // console.log(this.productInWishlist()(res.data[i]._id), res.data[i]._id);
+        }
       },
       error: (err) => {
         console.log(err);
@@ -52,7 +56,6 @@ export class ProductsComponent implements OnInit {
     this.cart.addToCart(id).subscribe({
       next: (res) => {
         this.cart.counter.set(res.numOfCartItems);
-        console.log(res);
         this.toastr.success(res.message, 'Success')
       },
       error: (err) => {
@@ -65,7 +68,9 @@ export class ProductsComponent implements OnInit {
   getWishlist(){
     this.wishlistService.getWishlist().subscribe({
       next:(res)=>{
-        this.wishList.set(res.data);
+        const productIds = res.data.map((product: Wishlist) => product._id); 
+        console.log(productIds);
+        this.wishList.set(productIds);
       },error:(err)=>{
         console.log(err);
       }
@@ -80,7 +85,6 @@ export class ProductsComponent implements OnInit {
   addToWishlist(id:string){
     this.wishlistService.addToWishlist(id).subscribe({
       next:(res)=>{
-        console.log(res.data);
         this.wishList.set(res.data);
         this.toastr.success(`${res.message} <i class="fa-solid fa-heart"></i> `,
       'Success',{

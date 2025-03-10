@@ -78,6 +78,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
     this.getCategories();
+    this.getWishlist();
   }
 
   getProducts() {
@@ -125,6 +126,18 @@ export class HomeComponent implements OnInit {
     return (id: string) => this.wishListString().includes(id);
   });
 
+  getWishlist(){
+    this.wishlist.getWishlist().subscribe({
+      next:(res)=>{
+        const productIds = res.data.map((product: Wishlist) => product._id); 
+        console.log(productIds);
+        this.wishListString.set(productIds);
+      },error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+
 
   addToWishlist(id:string){
     this.wishlist.addToWishlist(id).subscribe({
@@ -157,7 +170,6 @@ export class HomeComponent implements OnInit {
   }
 
   toggleFavorite(id: string) {
-    this.productID = id;
     if ( this.productInWishlist()(id)) {
       this.removeFromWishlist(id);
     } else {
