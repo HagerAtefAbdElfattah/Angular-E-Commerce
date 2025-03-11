@@ -20,7 +20,7 @@ export class OrdersService {
   userId!: UserTokenData
 
 onlinePayment(id:string, form:Checkout):Observable<any> {
-  return this.http.post(`${this.baseUrl}/api/v1/orders/checkout-session/${id}?url=http://localhost:4200/allorders`,{
+  return this.http.post(`${this.baseUrl}/api/v1/orders/checkout-session/${id}?url=http://localhost:4200/`,{
     "shippingAddress":form
 },{
   headers:{
