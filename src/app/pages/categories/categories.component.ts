@@ -4,10 +4,11 @@ import { Category } from '../../core/interfaces/Category';
 import { Router } from '@angular/router';
 import { SubCategoriesComponent } from "../sub-categories/sub-categories.component";
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-categories',
-  imports: [SubCategoriesComponent, FormsModule],
+  imports: [SubCategoriesComponent, FormsModule, TranslatePipe],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss'
 })

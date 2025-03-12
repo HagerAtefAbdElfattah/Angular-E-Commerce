@@ -3,11 +3,12 @@ import {AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TranslatePipe],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

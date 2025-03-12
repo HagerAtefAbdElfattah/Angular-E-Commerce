@@ -7,7 +7,7 @@
             <button data-collapse-toggle="navbar-user" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-user" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
+                <span class="sr-only">{{"navbar.menu"|translate}}</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 17 14">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -24,32 +24,33 @@
                 class="capitalize flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-1 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'home'"
-                        routerLinkActive="active bg-green-500" id="home">home</a>
+                        routerLinkActive="active bg-green-500" id="home">{{"navbar.home"|translate}}</a>
                 </li>
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'wishlist'"
-                        routerLinkActive="active bg-green-500" id="cart">Wish list</a>
+                        routerLinkActive="active bg-green-500" id="cart">{{"navbar.wishlist"|translate}}</a>
                 </li>
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'cart'"
-                        routerLinkActive="active bg-green-500" id="cart">cart</a>
+                        routerLinkActive="active bg-green-500" id="cart">{{"navbar.cart"|translate}}</a>
                 </li>
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'brands'"
-                        routerLinkActive="active bg-green-500" id="brands">brands</a>
+                        routerLinkActive="active bg-green-500" id="brands">{{"navbar.brand"|translate}}</a>
                 </li>
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'categories'"
-                        routerLinkActive="active bg-green-500" id="categories">categories</a>
+                        routerLinkActive="active bg-green-500" id="categories">{{"navbar.categories"|translate}}</a>
                 </li>
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'products'"
-                        routerLinkActive="active bg-green-500" id="products">products</a>
+                        routerLinkActive="active bg-green-500" id="products">{{"navbar.products"|translate}}</a>
                 </li>
+                
             </ul>
             }
             <ul
-                class="ms-auto capitalize flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-1 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+                class="ms-auto capitalize flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-1 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900"><i class="fa fa-brands fa-facebook"></i></a>
                 </li>
@@ -65,23 +66,29 @@
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900"><i class="fa fa-brands fa-tiktok"></i></a>
                 </li>
-                <li class="relative">
-                    <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'cart'"
-                        routerLinkActive="text-green-500" id="cart"><i class="fa-solid fa-cart-shopping fa-2x hover:text-green-800 "></i>
-                        <span class="bg-red-100 text-red-800 text-xs font-medium me-1 px-1.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300 absolute top-0 end-0">{{numberCounter()}}</span></a>
-                </li>
+                
                 @if (isLogin == false) {
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'login'"
-                        routerLinkActive="active bg-yellow-500">login</a>
+                        routerLinkActive="active bg-yellow-500">{{"navbar.login"|translate}}</a>
                 </li>
                 <li>
                     <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'register'"
-                        routerLinkActive="active bg-yellow-500">register</a>
+                        routerLinkActive="active bg-yellow-500">{{"navbar.register"|translate}}</a>
                 </li>
                 }
                 @if (isLogin) {
-                    <a class="block px-4 py-2 text-gray-900 hover:bg-green-500 rounded-md" (click)="logout()">Signout</a>
+                    <li class="relative">
+                        <a class="block py-2 px-3 rounded-sm  text-gray-900" [routerLink]="'cart'"
+                            routerLinkActive="text-green-500" id="cart"><i class="fa-solid fa-cart-shopping fa-2x hover:text-green-800 "></i>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium me-1 px-1.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300 absolute top-0 end-0">{{numberCounter()}}</span></a>
+                    </li>
+                    <li>
+                        <button (click)=" changeLangService()">{{'navbar.lang'|translate}}</button>
+                    </li>
+                    <li>
+                        <a class="block px-4 py-2 text-gray-900 hover:bg-green-500 rounded-md" (click)="logout()">{{"navbar.logout"|translate}}</a>
+                    </li>
                 }
             </ul>
         </div>

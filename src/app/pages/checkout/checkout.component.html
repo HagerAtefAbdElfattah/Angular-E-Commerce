@@ -1,6 +1,6 @@
 
 <section>
-    <h2 class="text-4xl text-center my-3 text-green-600 capitalize">checkout details</h2>
+    <h2 class="text-4xl text-center my-3 text-green-600 capitalize">{{"checkout.title"|translate}}</h2>
     @if (errorMessage!='') {
         <div class="w-[80%] mx-auto p-5 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert" >
             <button class="block ms-auto" (click)="alertClose()"><i class="fa-solid fa-xmark"></i></button>
@@ -12,7 +12,7 @@
     <form class="w-[80%] mx-auto p-5" [formGroup]="checkoutForm" (ngSubmit)="submit()">
 
         <div class="mb-4">
-            <label for="details" class="block mb-2 text-sm font-medium text-gray-900 capitalize">details</label>
+            <label for="details" class="block mb-2 text-sm font-medium text-gray-900 capitalize">{{"checkout.details"|translate}}</label>
             <textarea formControlName="details" id="details"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 "></textarea>
         </div>
@@ -25,9 +25,9 @@
                 <path
                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
             </svg>
-            <span class="sr-only">Danger</span>
+            <span class="sr-only">{{"checkout.danger"|translate}}</span>
             <div>
-                <span class="font-medium">Ensure that these requirements are met:</span>
+                <span class="font-medium">{{"checkout.ensure"|translate}}:</span>
                 <ul class="mt-1.5 list-disc list-inside">
                     @if (detailsControl.hasError('required')) {
                         <li>details is required</li>

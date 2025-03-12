@@ -4,10 +4,11 @@ import { Wishlist } from '../../core/interfaces/wishlist';
 import { CurrencyPipe } from '@angular/common';
 import { CartService } from '../../core/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-wishlist',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, TranslatePipe],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss'
 })

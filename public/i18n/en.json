@@ -1,0 +1,142 @@
+{
+    "navbar": {
+        "home": "Home",
+        "cart": "Cart",
+        "wishlist": "Wish list",
+        "brand": "Brand",
+        "categories": "Categories",
+        "products": "Product",
+        "logout": "Log out",
+        "login": "Login",
+        "register": "Register",
+        "lang":"English",
+        "menu":"Open main menu"
+    },
+    "login": {
+        "title": "Login Now",
+        "email": "Email",
+        "password":"Password",
+        "btn":"Login",
+        "forgot":"Forgot Password?",
+        "Danger":"Danger",
+        "ensure":"Ensure that these requirements are met:",
+        "password-re":"password is required;",
+        "email-re":"email is required",
+        "email-valid":"please enter a valid email"
+    },
+    "footer": {
+        "resources": "Resources",
+        "follow": "Follow us",
+        "Privacy": "Privacy Policy",
+        "Terms": "Terms & Conditions",
+        "Rights": "All rights reserved"
+    },
+    "all-orders": {
+        "title": "All orders",
+        "date": "Date",
+        "invoice": "Invoice",
+        "phone": "Phone",
+        "city": "City",
+        "paid": "Paid",
+        "delivered": "Delivered",
+        "details": "Details",
+        "is-paid": "Paid",
+        "is-delivered": "Delivered",
+        "is-not-paid": "Not Paid",
+        "is-not-delivered": "Not Delivered"
+    },
+    "brands": {
+        "title": "All Brands",
+        "brand": "Brand",
+        "close-model": "Close modal",
+        "close": "Close"
+    },
+    "cart":{
+        "title":"Your Cart",
+        "total":"total cart price",
+        "price":"Price",
+        "remove":"Remove",
+        "clear":"Clear Cart",
+        "checkout":"Checkout",
+        "empty":"Your cart is empty"
+    },
+    "categories":{
+        "title":"All Categories"
+    },
+    "checkout":{
+        "title":"Checkout Details",
+        "details":"Details",
+        "danger":"Danger",
+        "ensure":"Ensure that these requirements are met"
+    },
+    "details":{
+        "cart": "Add To Cart"
+    },
+    "forgetPassword":{
+        "title":"Forget Password",
+        "email":"Email",
+        "danger":"Danger",
+        "ensure":"Ensure that these requirements are met",
+        "email-re":"email is required",
+        "email-valid":"please enter a valid email",
+        "next":"Next",
+        "code":"Code",
+        "password":"New Password",
+        "password-re":"password is required",
+        "password-valid":"password is invalid"
+    },
+    "home":{
+        "title":"Popular Products",
+        "search":"Search Products",
+        "addCart":"add to cart",
+        "found":"Product Doesn't Found"
+    },
+    "order-detail":{
+        "title":"Services",
+        "invoice":"Invoice",
+        "date":"Date",
+        "method":"Method",
+        "bill":"Bill To:",
+        "description":"Description",
+        "amount":"Amount",
+        "total":"Total",
+        "thank":"Thank you for your business!",
+        "please":"Please remit payment within 30 days."
+    },
+    "product":{
+        "title":"Products",
+        "cart":"add to cart"
+    },
+    "register":{
+        "title":"Register",
+        "name":"Name",
+        "email":"Email",
+        "password":"Password",
+        "repassword":"Re-Password",
+        "phone":"Phone",
+        "register":"Register",
+        "danger":"Danger",
+        "ensure":"Ensure that these requirements are met:",
+        "name-re":"Name is required",
+        "name-min":"Min length is 3 characters",
+        "name-max":"Max length is 100 characters",
+        "email-re":"email is required",
+        "email-valid":"please enter a valid email",
+        "password-re":"password is required",
+        "pattern1":"Start with a letter (either uppercase or lowercase)",
+        "pattern2":"Be between 6 and 9 characters in total.",
+        "pattern3":"Can only contain letters (A-Z or a-z) and numbers (0-9)",
+        "repassword-re":"please confirm the password",
+        "repassword-not":"the password doesn't match",
+        "phone-re":"phone number is required",
+        "phone-min":"Min length is 11 characters",
+        "phone-pattern":"please enter a valid Egyptian number"
+    },
+    "wishlist":{
+        "title":"your Wish list :",
+        "price":"Price",
+        "remove":"Remove",
+        "addCart":"Add To Cart",
+        "empty":"Your Wish List Is Empty"
+    }
+}

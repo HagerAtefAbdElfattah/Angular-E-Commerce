@@ -11,12 +11,14 @@ import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { WishlistService } from '../../core/services/wishlist.service';
 import { Wishlist } from '../../core/interfaces/wishlist';
+import { CurrencyPipe } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, RouterLink, SearchPipe, FormsModule],
+  imports: [CarouselModule, RouterLink, SearchPipe, FormsModule, CurrencyPipe, TranslatePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

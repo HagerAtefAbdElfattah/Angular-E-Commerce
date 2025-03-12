@@ -1,5 +1,5 @@
 <section>
-    <h2 class="text-4xl text-center my-3 text-green-600 capitalize">login</h2>
+    <h2 class="text-4xl text-center my-3 text-green-600 capitalize">{{"login.title"|translate}}</h2>
 
     @if (errMessage!='') {
     <div class="w-[80%] mx-auto p-5 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
@@ -12,7 +12,7 @@
     <form class="w-[80%] mx-auto p-5" [formGroup]="loginForm" (ngSubmit)="submit()">
 
         <div class="mb-4">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">{{"login.email"|translate}}</label>
             <input type="email" formControlName="email" id="email"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
         </div>
@@ -24,15 +24,15 @@
                 <path
                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
             </svg>
-            <span class="sr-only">Danger</span>
+            <span class="sr-only">{{"login.Danger"|translate}}</span>
             <div>
-                <span class="font-medium">Ensure that these requirements are met:</span>
+                <span class="font-medium">{{"login.ensure"|translate}}</span>
                 <ul class="mt-1.5 list-disc list-inside">
                     @if (emailControl.hasError('required')) {
-                    <li>email is required</li>
+                    <li>{{"login.email-re"|translate}}</li>
                     }
                     @if (emailControl.hasError('email')) {
-                    <li>please enter a valid email</li>
+                    <li>{{"login.email-valid"|translate}}</li>
                     }
                 </ul>
             </div>
@@ -40,7 +40,7 @@
         }
 
         <div class="mb-4">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">{{"login.password"|translate}}</label>
             <input type="password" formControlName="password" id="password"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
         </div>
@@ -52,22 +52,22 @@
                 <path
                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
             </svg>
-            <span class="sr-only">Danger</span>
+            <span class="sr-only">{{"login.Danger"|translate}}</span>
             <div>
-                <span class="font-medium">Ensure that these requirements are met:</span>
+                <span class="font-medium">{{"login.ensure"|translate}}</span>
                 <ul class="mt-1.5 list-disc list-inside">
                     @if (passwordControl?.hasError('required')) {
-                    <li>password is required</li>
+                    <li>{{"login.password-re"|translate}}</li>
                     }
                 </ul>
             </div>
         </div>
         }
         <div class="flex gap-3 justify-between">
-            <a class=" text-green-500 hover:text-green-800 mt-3 capitalize text-center" routerLink="/forgetPassword">forget password ?</a>
+            <a class=" text-green-500 hover:text-green-800 mt-3 capitalize text-center" routerLink="/forgetPassword">{{"login.forget"|translate}}</a>
             <button
                 class="bg-green-500 rounded-md px-6 py-2 text-white block hover:bg-green-800 mt-3 disabled:bg-green-800"
-                [disabled]="loginForm.invalid">login
+                [disabled]="loginForm.invalid">{{"login.btn"|translate}}
                 @if (isLoading) {
                 <i class="fa-solid fa-spinner fa-spin"></i>
                 }

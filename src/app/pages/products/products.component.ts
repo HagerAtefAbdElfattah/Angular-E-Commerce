@@ -7,13 +7,12 @@ import { CartService } from '../../core/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { WishlistService } from '../../core/services/wishlist.service';
 import { CommonModule } from '@angular/common'; 
-import { get } from 'http';
-import { Console } from 'console';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-products',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, TranslatePipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })

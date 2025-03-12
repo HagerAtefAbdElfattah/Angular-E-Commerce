@@ -1,7 +1,7 @@
 <section class="p-5 m-10 rounded-md bg-gray-300">
-    <h2 class="text-2xl mb-4 capitalize font-bold">your cart :</h2>
+    <h2 class="text-2xl mb-4 capitalize font-bold">{{"cart.title"|translate}} :</h2>
     <div>
-        <p class="mb-4 text-lg font-medium capitalize">total cart price :
+        <p class="mb-4 text-lg font-medium capitalize">{{"cart.total"|translate}} :
             <span class="text-green-600 ">{{cartData.totalCartPrice | currency:"EGP"}}</span>
         </p>
     </div>
@@ -15,8 +15,8 @@
                 <div class="product-info w-[90%] flex justify-between items-center">
                     <div class="data">
                         <h3 class="text-xl mb-4 text-green-400">{{product.product.title}}</h3>
-                        <p class="mb-4">price : <span class="text-green-600">{{product.price|currency:'EGP'}}</span></p>
-                        <button (click)="removeProduct(product.product._id)" class="text-red-500 hover:text-red-800"><i class="fa-solid fa-trash-can"></i> Remove</button>
+                        <p class="mb-4">{{"cart.price"|translate}} : <span class="text-green-600">{{product.price|currency:'EGP'}}</span></p>
+                        <button (click)="removeProduct(product.product._id)" class="text-red-500 hover:text-red-800"><i class="fa-solid fa-trash-can"></i>{{"cart.remove"|translate}}</button>
                     </div>
                     <div class="count flex items-center space-x-4">
                         <button (click)="updateProduct(product.product._id,product.count+1)" class="text-3xl border border-solid border-green-600 bg-transparent p-2 rounded-md "><i class="fa-solid fa-plus text-green-600 hover:text-green-900"></i></button>
@@ -31,11 +31,11 @@
             }
             }
             <div class="buttons flex justify-between mt-5 space-x-3">
-                <button (click)="clearCart()" class="bg-red-500 rounded-md px-6 py-2 text-white block hover:bg-red-800 mt-3 disabled:bg-red-800 capitalize">clear cart</button>
-                <button [routerLink]="['/checkout',cartId]" routerLinkActive="router-link-active"  class="bg-green-500 rounded-md px-6 py-2 text-white block hover:bg-green-800 mt-3 disabled:bg-green-800 capitalize">checkout</button>
+                <button (click)="clearCart()" class="bg-red-500 rounded-md px-6 py-2 text-white block hover:bg-red-800 mt-3 disabled:bg-red-800 capitalize">{{"cart.clear"|translate}}</button>
+                <button [routerLink]="['/checkout',cartId]" routerLinkActive="router-link-active"  class="bg-green-500 rounded-md px-6 py-2 text-white block hover:bg-green-800 mt-3 disabled:bg-green-800 capitalize">{{"cart.checkout"|translate}}</button>
             </div>
     }@else {
-        <p class="text-3xl text-center my-10 capitalize">your cart is empty</p>
+        <p class="text-3xl text-center my-10 capitalize">{{"cart.empty"|translate}}</p>
     }
 
 </section>

@@ -3,10 +3,11 @@ import { OrdersService } from '../../core/services/orders.service';
 import { Order } from '../../core/interfaces/orders';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-all-orders',
-  imports: [DatePipe, CurrencyPipe,RouterLink],
+  imports: [DatePipe, CurrencyPipe,RouterLink,TranslatePipe],
   templateUrl: './all-orders.component.html',
   styleUrl: './all-orders.component.scss'
 })
@@ -21,7 +22,7 @@ export class AllOrdersComponent implements  OnInit {
     this.orders.getUserOrder(this.orders.userId.id).subscribe({
       next:(res)=>{
         console.log(res,this.orders.userId);
-        this.userOrders = res as Order[]
+        this.userOrders = res.reverse() as Order[]
 
       },error:(err)=>{
         console.log(err,this.orders.userId);

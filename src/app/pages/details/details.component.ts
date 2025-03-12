@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../core/services/products.service';
 import { Product } from '../../core/interfaces/Product';
 import { CartService } from '../../core/services/cart.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-details',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })

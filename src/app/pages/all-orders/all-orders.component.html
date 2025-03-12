@@ -1,18 +1,18 @@
-<section>
-    <h2 class="text-4xl text-center my-3 text-green-600 capitalize">all orders</h2>
+<section class="mx-auto">
+    <h2 class="text-4xl text-center my-3 text-green-600 capitalize">{{"all-orders.title"|translate}}</h2>
     <div class="orders-table">
         <div class="md:px-32 py-8 w-full">
             <div class="shadow overflow-hidden rounded border-b border-gray-200">
                 <table class="min-w-full bg-white">
                     <thead class="bg-gray-800 text-white">
                         <tr>
-                            <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">Date</th>
-                            <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">Invoice</th>
-                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Phone</th>
-                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">City</th>
-                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Paid</th>
-                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Delivered</th>
-                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">details</th>
+                            <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">{{"all-orders.date"|translate}}</th>
+                            <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">{{"all-orders.invoice"|translate}}</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">{{"all-orders.phone"|translate}}</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">{{"all-orders.city"|translate}}</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">{{"all-orders.paid"|translate}}</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">{{"all-orders.delivered"|translate}}</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">{{"all-orders.details"|translate}}</th>
                         </tr>
                     </thead>
                     <tbody class="text-gray-700">
@@ -24,16 +24,16 @@
                                 <td class="text-left py-3 px-4"><a>{{order.shippingAddress.city}}</a></td>
                                 <td class="text-left py-3 px-4"><a>
                                 @if (order.isPaid == true) {
-                                    <p class="bg-green-400 text-center rounded-md">paid</p>
+                                    <p class="bg-green-400 text-center rounded-md">{{"all-orders.is-paid"|translate}}/p>
                                 }@else {
-                                    <p class="bg-red-400 text-center rounded-md">not paid</p>
+                                    <p class="bg-red-400 text-center rounded-md">{{"all-orders.is-not-paid"|translate}}</p>
                                 }
                                 </a></td>
                                 <td class="text-left py-3 px-4"><a>
                                     @if (order.isDelivered == true) {
-                                        <p class="bg-green-400 text-center rounded-md">delivered</p>
+                                        <p class="bg-green-400 text-center rounded-md">{{"all-orders.is-delivered"|translate}}</p>
                                     }@else {
-                                        <p class="bg-red-400 text-center rounded-md">not delivered</p>
+                                        <p class="bg-red-400 text-center rounded-md">{{"all-orders.is-not-delivered"|translate}}</p>
                                     }
                                 </a></td>
                                 <td class="text-left py-3 px-4"><a [routerLink]="['/orderDetails',order._id]" routerLinkActive="router-link-active"><i class="fa-solid fa-up-right-from-square"></i></a></td>

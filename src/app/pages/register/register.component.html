@@ -1,5 +1,5 @@
 <section>
-    <h2 class="text-4xl text-center my-3 text-green-600 capitalize">register</h2>
+    <h2 class="text-4xl text-center my-3 text-green-600 capitalize">{{"register.title"|translate}}</h2>
     @if (errorMessage!='') {
         <div class="w-[80%] mx-auto p-5 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert" >
             <button class="block ms-auto" (click)="alertClose()"><i class="fa-solid fa-xmark"></i></button>
@@ -10,7 +10,7 @@
     <form class="w-[80%] mx-auto p-5" [formGroup]="registerForm" (ngSubmit)="submit()">
 
         <div class="mb-4">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">{{"register.name"|translate}}</label>
             <input type="text" formControlName="name" id="name"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
         </div>
@@ -25,23 +25,23 @@
             </svg>
             <span class="sr-only">Danger</span>
             <div>
-                <span class="font-medium">Ensure that these requirements are met:</span>
+                <span class="font-medium">{{"register.ensure"|translate}}</span>
                 <ul class="mt-1.5 list-disc list-inside">
                     @if (nameControl.hasError('required')) {
-                        <li>Name is required</li>
+                        <li>{{"register.name-re"|translate}}</li>
                     }
                     @if (nameControl.hasError('minlength')) {
-                        <li>Min length is 3 characters</li>
+                        <li>{{"register.name-min"|translate}}</li>
                     }
                     @if (nameControl.hasError('maxlength')) {
-                        <li>Max length is 100 characters</li>
+                        <li>{{"register.name-max"|translate}}</li>
                     }
                 </ul>
             </div>
         </div>
         }
         <div class="mb-4">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">{{"register.email"|translate}}</label>
             <input type="email" formControlName="email" id="email"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
         </div>
@@ -54,22 +54,22 @@
                     <path
                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                 </svg>
-                <span class="sr-only">Danger</span>
+                <span class="sr-only">{{"register.danger"|translate}}</span>
                 <div>
-                    <span class="font-medium">Ensure that these requirements are met:</span>
+                    <span class="font-medium">{{"register.ensure"|translate}}</span>
                     <ul class="mt-1.5 list-disc list-inside">
                         @if (emailControl.hasError('required')) {
-                            <li>email is required</li>
+                            <li>{{"register.email-re"|translate}}</li>
                         }
                         @if (emailControl.hasError('email')) {
-                            <li>please enter a valid email</li>
+                            <li>{{"register.email-valid"|translate}}</li>
                         }
                     </ul>
                 </div>
             </div>
             }
         <div class="mb-4">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">{{"register.password"|translate}}</label>
             <input type="password" formControlName="password" id="password"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
         </div>
@@ -82,24 +82,24 @@
                     <path
                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                 </svg>
-                <span class="sr-only">Danger</span>
+                <span class="sr-only">{{"register.danger"|translate}}</span>
                 <div>
-                    <span class="font-medium">Ensure that these requirements are met:</span>
+                    <span class="font-medium">{{"register.ensure"|translate}}</span>
                     <ul class="mt-1.5 list-disc list-inside">
                         @if (passwordControl?.hasError('required')) {
-                            <li>password is required</li>
+                            <li>{{"register.password-re"|translate}}</li>
                         }
                         @if (passwordControl?.hasError('pattern')) {
-                            <li>Start with a letter (either uppercase or lowercase).</li>
-                            <li>Be between 6 and 9 characters in total.</li>
-                            <li>Can only contain letters (A-Z or a-z) and numbers (0-9)</li>
+                            <li>{{"register.pattern1"|translate}}</li>
+                            <li>{{"register.pattern2"|translate}}</li>
+                            <li>{{"register.pattern3"|translate}}</li>
                         }
                     </ul>
                 </div>
             </div>
             }
         <div class="mb-4">
-            <label for="rePassword" class="block mb-2 text-sm font-medium text-gray-900">RePassword</label>
+            <label for="rePassword" class="block mb-2 text-sm font-medium text-gray-900">{{"register.repassword"|translate}}</label>
             <input type="password" formControlName="rePassword" id="rePassword"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
         </div>
@@ -112,22 +112,22 @@
                     <path
                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                 </svg>
-                <span class="sr-only">Danger</span>
+                <span class="sr-only">{{"register.danger"|translate}}</span>
                 <div>
-                    <span class="font-medium">Ensure that these requirements are met:</span>
+                    <span class="font-medium">{{"register.ensure"|translate}}</span>
                     <ul class="mt-1.5 list-disc list-inside">
                         @if (repassword?.hasError('required')) {
-                            <li>please confirm the password</li>
+                            <li>{{"register.repassword-re"|translate}}</li>
                         }
                         @if (registerForm.hasError('notSame')) {
-                            <li>the password doesn't match</li>
+                            <li>{{"register.repassword-not"|translate}}</li>
                         }
                         </ul>
                 </div>
             </div>
         }
         <div class="mb-4">
-            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Phone</label>
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">{{"register.phone"|translate}}</label>
             <input type="tel" formControlName="phone" id="phone"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
         </div>
@@ -140,18 +140,18 @@
                     <path
                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                 </svg>
-                <span class="sr-only">Danger</span>
+                <span class="sr-only">{{"register.danger"|translate}}</span>
                 <div>
-                    <span class="font-medium">Ensure that these requirements are met:</span>
+                    <span class="font-medium">{{"register.ensure"|translate}}</span>
                     <ul class="mt-1.5 list-disc list-inside">
                         @if (phoneControl?.hasError('required')) {
-                            <li>phone number is required</li>
+                            <li>{{"register.phone-re"|translate}}</li>
                         }
                         @if (phoneControl?.hasError('minlength')) {
-                            <li>Min length is 11 characters</li>
+                            <li>{{"register.phone-min"|translate}}</li>
                         }
                         @if (phoneControl?.hasError('pattern')) {
-                            <li>please enter a valid egyptian number</li>
+                            <li>{{"register.phone-pattern"|translate}}</li>
                         }
                     </ul>
                 </div>
@@ -159,7 +159,7 @@
             }
 
         <button
-            class="bg-green-500 rounded-md px-6 py-2 text-white block ms-auto hover:bg-green-800 mt-3 disabled:bg-green-900" type="submit" [disabled]="registerForm.invalid">register
+            class="bg-green-500 rounded-md px-6 py-2 text-white block ms-auto hover:bg-green-800 mt-3 disabled:bg-green-900" type="submit" [disabled]="registerForm.invalid">{{"register.register"|translate}}
             @if (isLoading) {
                 <i class="fa-solid fa-spinner fa-spin"></i>
             }

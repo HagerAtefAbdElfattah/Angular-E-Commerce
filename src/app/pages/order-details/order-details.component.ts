@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../../core/services/orders.service';
 import { Order } from '../../core/interfaces/orders';
 import { CurrencyPipe, DatePipe } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-order-details',
-  imports: [DatePipe,CurrencyPipe],
+  imports: [DatePipe,CurrencyPipe, TranslatePipe],
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.scss'
 })
