@@ -47,7 +47,8 @@ export class HomeComponent implements OnInit {
     navSpeed: 700,
     navText: ['', ''],
     nav: true,
-    items: 1
+    items: 1,
+    rtl:true,
   }
 
   customOptions: OwlOptions = {
@@ -72,7 +73,8 @@ export class HomeComponent implements OnInit {
         items: 4
       }
     },
-    nav: true
+    nav: true,
+    rtl:true,
   }
 
   constructor(private ProductsService:ProductsService,private categoryService:CategoriesService, private CartService:CartService,
