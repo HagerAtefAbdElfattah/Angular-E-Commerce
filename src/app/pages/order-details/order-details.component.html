@@ -18,15 +18,15 @@
     <table class="w-full mb-8">
         <thead>
             <tr>
-                <th class="text-left font-bold text-gray-700">{{"order-detail.description"|translate}}</th>
-                <th class="text-right font-bold text-gray-700">{{"order-detail.amount"|translate}}</th>
+                <th class="text-left font-bold text-gray-700 border">{{"order-detail.description"|translate}}</th>
+                <th class="text-right font-bold text-gray-700 border">{{"order-detail.amount"|translate}}</th>
             </tr>
         </thead>
         <tbody>
             @for (product of userOrder[0].cartItems; track $index) {
                 <tr>
-                <td class="text-left text-gray-700">{{product.product.title}} x {{product.count}}</td>
-                <td class="text-right text-gray-700">{{product.price|currency:"EGP"}}</td>
+                <td class="text-left text-gray-700 border">{{product.product.title}} x {{product.count}}</td>
+                <td class="text-right text-gray-700 border">{{product.price|currency:"EGP"}}</td>
             </tr>
             }
         </tbody>

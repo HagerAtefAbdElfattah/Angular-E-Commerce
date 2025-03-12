@@ -66,6 +66,14 @@
     "checkout":{
         "title":"Checkout Details",
         "details":"Details",
+        "phone":"Phone",
+        "city":"City",
+        "details-re":"details is required",
+        "phone-re":"phone is required",
+        "phone-min":"Min length is 11 characters",
+        "phone-pattern":"please enter a valid Egyptian number",
+        "city-re":"city is required",
+        "btn":"Online payment",
         "danger":"Danger",
         "ensure":"Ensure that these requirements are met"
     },
